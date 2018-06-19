@@ -1,4 +1,6 @@
 # data-vis-template
+Pretty much what you see below, out of the box:
+![alt text](https://github.com/izzabudaka/data-vis-template/public/template.png)
 
 ## Run Instructions
 ```sh
