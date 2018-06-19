@@ -4,8 +4,8 @@ import SunBurst from "./sunburst";
 import Bar from "./bar";
 import Line from "./line";
 
-import '../style/App.css';
-import '../style/diagram.css';
+import '../styles/App.css';
+import '../styles/diagram.css';
 
 class App extends Component {
   constructor() {

@@ -1,0 +1,8 @@
+.diagram {
+  width: 400px;
+  height: 400px;
+}
+
+.diagrams {
+  display: flex;
+}
