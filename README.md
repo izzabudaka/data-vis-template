@@ -4,6 +4,7 @@
 ```sh
 git clone https://github.com/izzabudaka/data-vis-template.git
 cd data-vis-template
+npm install
 npm start
 ```
 
