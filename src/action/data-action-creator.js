@@ -1,30 +1,32 @@
 import DataDispatcher from "../data-dispatcher";
-import DataActions from "../constant/DataActions";
+import DataActions from "../constant/data-actions";
 import Api from "../api/api";
 
 class DataActionCreator {
-  getData() {
-    Api.makeRequest("/uri", "GET", this.setDate, this.errorData);
+  static getData() {
+    Api.makeRequest("/uri", "GET", this.setData, this.errorData);
   }
 
-  setData(data) {
+  static setData(data) {
     DataDispatcher.dispatch({
       actionType: DataActions.SET_DATA,
       data
     })
   }
 
-  errorData(error) {
+  static errorData(error) {
     DataDispatcher.dispatch({
       actionType: DataActions.ERROR_DATA,
       error
     })
   }
 
-  removeData(id) {
+  static removeData(id) {
     DataDispatcher.dispatch({
       actionType: DataActions.REMOVE_DATA,
       id
     })
   }
 }
+
+export default DataActionCreator;

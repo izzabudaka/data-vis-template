@@ -44,7 +44,7 @@ class DataStoreClass extends EventEmitter {
     }
 
     addError(error) {
-      this.errors.add(error);
+      this._errors.push(error.message);
       this.emit(ERROR_DATA_EVENT);
     }
 
@@ -52,20 +52,20 @@ class DataStoreClass extends EventEmitter {
       return this._data;
     } 
 
-    get errros() {
+    get errors() {
       return this._errors;
     }
 
     set data(data) {
-      this._data = {};
+      this._data = data;
     }
 }
 
 const DataStore = new DataStoreClass();
-DataDispatcher.register((action: any) => {
+DataDispatcher.register((action) => {
     switch (action.actionType) {
         case DataActions.SET_DATA:
-            DataStore.addData(action.filter);
+            DataStore.addData(action.data);
             DataStore.resetErrors();
             break;
         case DataActions.REMOVE_DATA:
@@ -73,8 +73,10 @@ DataDispatcher.register((action: any) => {
             DataStore.resetErrors();
             break;
         case DataActions.ERROR_DATA:
-            DataStore.addError(action.id);
+            DataStore.addError(action.error);
             break;
+      default:
+        break;
     }
 });
 
